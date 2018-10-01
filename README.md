@@ -8,3 +8,4 @@ I'll keepupdating this as well...
 
 Thanks for reading my README.
 You can reach out.
+# typing_effect
