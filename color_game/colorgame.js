@@ -1,4 +1,4 @@
-  var numSquares = 6;
+  var numSquares = 9;
   var colors = [];
   var pickedColor; //change this from been hard-coded (colors[3]) to random
   var squares = document.querySelectorAll(".square");
@@ -51,10 +51,27 @@
   function setUpModeButtons() {
     for (var i = 0; i < modeButton.length; i++) {
       modeButton[i].addEventListener("click", function() {
-        modeButton[0].classList.remove("selected");
-        modeButton[1].classList.remove("selected");
+
+	// Used forEach() method to refactor the code and was able to save more
+        // lines
+        modeButton.forEach(button => {
+          button.classList.remove("selected");
+        });
+        // modeButton[0].classList.remove("selected");
+        // modeButton[1].classList.remove("selected");
+        // modeButton[2].classList.remove("selected");
         this.classList.add("selected");
-        this.textContent === "Easy" ? numSquares = 3: numSquares = 6;
+        
+        if (this.textContent === "Easy") {
+          numSquares = 3;
+        } else if (this.textContent === "Hard") {
+          numSquares = 6;
+        } else {
+          numSquares = 9;
+        }
+	// The logic above replaces the commented logic below
+	// that's because of the added complex mode
+        // this.textContent === "Easy" ? numSquares = 3: numSquares = 6;
         reset();
       });
     }
